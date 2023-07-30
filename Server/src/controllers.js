@@ -2,7 +2,8 @@
 let mensajes= []*/
 
 //requiero los modelos para usar los metodos(create, find, etc...) en ellos para acceder y modificar a la base de datos
-const {post}= require("../DataBase")
+const {post}= require("../DataBase");
+const nodemailer= require("nodemailer")
 
 
 async function ver (req,res){
@@ -25,6 +26,33 @@ async function ver (req,res){
 //sequelize esta basado en promesas
 async function poner(req,res){
    if(req.body.mensaje){
+    var transtorpe= nodemailer.createTransport({//crea un "transporte", se usa para indicar quien lo envia
+        host:"smtp.gmail.com",
+        port:465,
+        secure:true, //debe ser true sí el port es 465
+        auth:{
+            user:"caldesanche@gmail.com",
+            pass:"uwnehfrwtlqehqlo" //contraseña de app
+        }
+    })
+
+    const destino={//la info y el destinatario
+        from:"yo",
+        to:"caldesanche@gmail.com",
+        subject:"notificacion de: ya le estoy agarrando la onda a esto",
+        text:req.body.mensaje
+    }
+
+    transtorpe.sendMail(destino, (error, info)=>{
+        if(error){
+            res.status(500).send(error.message)
+        }else{
+            console.log("se ha enviado")
+        }
+    }
+    )
+
+
     const envio= await post.create({
         text: req.body.mensaje
     })
