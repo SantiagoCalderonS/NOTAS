@@ -5,4 +5,4 @@ Es un pequeña practica personal, cuyo proposito principal era ayudarme a compre
 su funcion es simple, escribir cualquier cosa y el servidor guarda la informacion en la base de datos
 ![muestra](capturas/Captura488.png)
 para luego enviarla de regreso y así verla en la ruta de papelera
-![muestra2](capturas/Captura488.png)
+![muestra2](capturas/Captura492.png)
