@@ -9,3 +9,8 @@ su funcion es simple, escribir cualquier cosa y el servidor guarda la informacio
 para luego enviarla de regreso y así verla en la ruta de papelera
 
 ![muestra2](capturas/Captura492.png)
+
+Proximo a agregar
+-Auth2
+-nodemailer
+socket.io
